@@ -234,7 +234,7 @@ FakesAssemblies/
 ### Code::Blocks IDE ###
 *.cbp
 *.layout
-
+*.depend
 
 
 ### Qt ###
