@@ -329,3 +329,36 @@ void SudokuProblem::print() {
 		else cout << endl;
 	}
 }
+
+Mat SudokuProblem::getImage() {
+	Mat image = Mat(408,408,CV_8UC3);
+	image.setTo(255);	
+	for (int x = 0; x < image.size().width; x++) {
+		for (int y = 0; y < image.size().height; y++) {
+			if (x % 45 == 1)
+				line(image, Point(x, 0), Point(x, image.size().height), Scalar(0, 0, 0), 1, 8, 0);
+			if (y % 45 == 1)
+				line(image, Point(0, y), Point(image.size().width, y), Scalar(0, 0, 0), 1, 8, 0);
+			if (x % 135 == 1)
+				line(image, Point(x, 0), Point(x, image.size().height), Scalar(0, 0, 0), 3, 8, 0);
+			if (y % 135 == 1)
+				line(image, Point(0, y), Point(image.size().width, y), Scalar(0, 0, 0), 3, 8, 0);
+		}
+	}
+	// Zeichen des Sudoku Problems in das Image
+	int fontFace = FONT_HERSHEY_PLAIN;
+	double fontScale = 2;
+	int thickness = 2;
+	for (int row = 0; row < 9; row++) {
+		for (int col = 0; col < 9; col++) {
+			std::stringstream sstm;
+			sstm << (int)sudoku[row][col];
+			string result = sstm.str();
+			cv::Point textOrigin(45*row+14, 45*(col+1)-10);
+			cv::putText(image, result, textOrigin, fontFace, fontScale, Scalar(0, 0, 0), thickness, 8);
+		}
+	}
+	namedWindow("Test", CV_WINDOW_AUTOSIZE);
+	imshow("Test", image);
+	return image;
+}

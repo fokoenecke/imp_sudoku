@@ -6,6 +6,7 @@ public:
 	SudokuProblem(int initial[81]);
 	~SudokuProblem();
 	void print();
+	Mat getImage();
 	void solve();
 private:
 	vector<string> sudoku;
