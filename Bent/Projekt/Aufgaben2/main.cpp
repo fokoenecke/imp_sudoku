@@ -1,10 +1,10 @@
 #include "stdafx.h"
 #include "SudokuProblem.h"
 
-using namespace std;
 
 void main()
 {
+	
 	int initial[81] = {	0,0,0, 0,0,3, 2,9,0,
 						0,8,6, 5,0,0, 0,0,0,
 						0,2,0, 0,0,1, 0,0,0,
@@ -18,9 +18,6 @@ void main()
 						0,4,7, 1,0,0, 0,0,0 };
 
 	SudokuProblem sudokuProblem = SudokuProblem(initial);
-	sudokuProblem.print();
 	sudokuProblem.solve();
-	sudokuProblem.print();
-
 	waitKey(0);
 }
