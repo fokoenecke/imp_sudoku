@@ -7,7 +7,9 @@ public:
 	SudokuProblem(int initial[81]);
 	~SudokuProblem();
 	void print();
-	void solve();
+	int* solve();
 	int working[81];
+protected:
+
 };
 

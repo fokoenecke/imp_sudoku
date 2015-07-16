@@ -48,7 +48,7 @@ void SudokuProblem::print()
 	cout << endl;
 }
 
-void SudokuProblem::solve()
+int* SudokuProblem::solve()
 {
 	cout << "fange an, das sudoku problem zu loesen..." << endl;
 	// ein array, dass eine liste der noch möglichen zahlen für das feld enthält
@@ -302,7 +302,7 @@ void SudokuProblem::solve()
 		if (complete)
 		{
 			cout << "alle felder sind ausgefuellt." << endl;
-			break;
+			return working;
 		}
 		else
 		{
