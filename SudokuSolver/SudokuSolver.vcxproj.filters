@@ -33,6 +33,12 @@
     <ClCompile Include="includes.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
+    <ClCompile Include="Helpers.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="Sudoku.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SudokuProblem.h">
@@ -45,6 +51,12 @@
       <Filter>Headerdateien</Filter>
     </ClInclude>
     <ClInclude Include="includes.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="Helpers.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="Sudoku.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
   </ItemGroup>

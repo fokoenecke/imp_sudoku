@@ -145,15 +145,19 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Button.cpp" />
+    <ClCompile Include="Helpers.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="includes.cpp" />
+    <ClCompile Include="Sudoku.cpp" />
     <ClCompile Include="SudokuProblem.cpp" />
     <ClCompile Include="SudokuSolver.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Button.h" />
+    <ClInclude Include="Helpers.h" />
     <ClInclude Include="includes.h" />
+    <ClInclude Include="Sudoku.h" />
     <ClInclude Include="SudokuProblem.h" />
     <ClInclude Include="SudokuSolver.h" />
   </ItemGroup>

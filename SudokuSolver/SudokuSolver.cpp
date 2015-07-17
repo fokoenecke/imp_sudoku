@@ -2,6 +2,7 @@
 #include<thread>
 #include "SudokuSolver.h"
 #include "SudokuProblem.h"
+#include "Sudoku.h"
 
 using namespace cv;
 
@@ -33,27 +34,41 @@ void SudokuSolver::Run()
 
 void SudokuSolver::getSolution(cv::Mat src)
 {
-	// Umwandlung des Bildes in ein Array für SudokuProblem
+	//* Testbild
+	Mat img = imread("images/sudoku_003.png", CV_LOAD_IMAGE_COLOR);
+	Mat example478 = imread("images/example478.png", CV_LOAD_IMAGE_COLOR);
 
-	// ... Oles Part
 
-	// Lösungsalgorithmus
+	//* Umwandlung des Bildes in ein Array für SudokuProblem
+	Sudoku sudoku = Sudoku(example478);
+	sudoku.detect();
+	//*/
+
+	//* Lösungsalgorithmus
+	int initial[81];
+	sudoku.getOneDimSudoku(initial);
+	//*/
+
+	/*
 	int initial[81] = { 
-		0, 0, 0,	0, 0, 0,	7, 0, 8,
-		0, 0, 8,	0, 0, 0,	0, 0, 0,
-		5, 0, 0,	0, 0, 0,	2, 0, 0,
+		4, 0, 0,	0, 0, 0,	0, 0, 0,
+		0, 0, 0,	8, 0, 0,	0, 0, 0,
+		0, 0, 0,	0, 0, 0,	7, 0, 0,
 
-		0, 0, 0,	0, 0, 8,	0, 6, 0,
-		9, 0, 0,	0, 3, 0,	0, 0, 7,
-		0, 3, 0,	6, 0, 0,	0, 0, 0,
+		0, 4, 0,	0, 0, 0,	0, 0, 0,
+		0, 0, 0,	0, 8, 0,	0, 0, 0,
+		0, 0, 0,	0, 0, 0,	0, 7, 0,
 
-		0, 0, 9,	0, 0, 0,	0, 0, 5,
-		0, 0, 0,	0, 0, 0,	4, 0, 0,
-		2, 0, 1,	0, 0, 0,	0, 0, 0 };
+		0, 0, 4,	0, 0, 0,	0, 0, 0,
+		0, 0, 0,	0, 0, 8,	0, 0, 0,
+		0, 0, 0,	0, 0, 0,	0, 0, 7 };//*/
+
+	cout << initial[0] << endl;
 
 	SudokuProblem sudokuProblem = SudokuProblem(initial);
 	sudokuProblem.solve();
 	resultImage = sudokuProblem.getImage();
+	//imwrite("images/example478.png", resultImage);
 
 	if (!resultImage.empty()) { pstate = psSolution; }
 }

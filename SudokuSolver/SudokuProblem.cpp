@@ -1,7 +1,8 @@
 #include "SudokuProblem.h"
 
-SudokuProblem::SudokuProblem(int initial[81]) {
+SudokuProblem::SudokuProblem(int* initial) {
 	// Füllen des Sudokus aus dem übergebenen Array
+	cout << initial[0] << endl;
 	sudoku.resize(9);
 	for (int i = 0; i < 9; i++) {
 		for (int j = 0; j < 9; j++) {
@@ -352,9 +353,14 @@ Mat SudokuProblem::getImage() {
 	for (int row = 0; row < 9; row++) {
 		for (int col = 0; col < 9; col++) {
 			std::stringstream sstm;
-			sstm << (int)sudoku[row][col];
+			if (sudoku[row][col] == 0) {
+				sstm << " ";
+			}
+			else {
+				sstm << (int)sudoku[row][col];
+			}
 			string result = sstm.str();
-			cv::Point textOrigin(45*row+14, 45*(col+1)-10);
+			cv::Point textOrigin(45*col+14, 45*(row+1)-10);
 			cv::putText(image, result, textOrigin, fontFace, fontScale, Scalar(0, 0, 0), thickness, 8);
 		}
 	}
